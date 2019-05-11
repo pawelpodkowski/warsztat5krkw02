@@ -46,10 +46,21 @@ public class MemoryBookService {
     }
 
     public void editBook(long id, Book book) {
-        for(int i = 0; i < this.list.size(); i++) {
+        for (int i = 0; i < this.list.size(); i++) {
             if (this.list.get(i).getId() == id) {
                 book.setId(id);
                 this.list.set(i, book);
+                return;
+            }
+        }
+    }
+
+    public void deleteBookById(long id) {
+        for (int i = 0; i < this.list.size(); i++) {
+            if (this.list.get(i).getId() == id) {
+                this.list.remove(i);
+                return;
+
             }
         }
     }

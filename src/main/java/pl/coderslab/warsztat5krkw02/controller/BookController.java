@@ -50,4 +50,11 @@ public class BookController {
         this.mbs.editBook(id, book);
         return "{\"status\": \"ok\"}";
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteBook(@PathVariable long id) {
+        this.mbs.deleteBookById(id);
+    }
+
+
 }
