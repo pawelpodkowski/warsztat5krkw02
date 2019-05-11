@@ -9,6 +9,7 @@ import java.util.List;
 @Service //bardziej szczegółowa adnotacja @Component
 public class MemoryBookService {
     private List<Book> list;
+
     public MemoryBookService() {
         list = new ArrayList<>();
         list.add(new Book(1L, "9788324631766", "Thinking in Java", "Bruce Eckel",
@@ -18,5 +19,21 @@ public class MemoryBookService {
         list.add(new Book(3L, "9780130819338", "Java 2. Podstawy",
                 "Cay Horstmann, Gary Cornell", "Helion", "programming"));
     }
-    public List<Book> getList() {return list;}
-    public void setList(List<Book> list) {this.list = list;}}
+
+    public List<Book> getList() {
+        return list;
+    }
+
+    public void setList(List<Book> list) {
+        this.list = list;
+    }
+
+    public Book getBookById(long id) {
+        for (Book b : this.list) {
+            if (b.getId() == id) {
+                return b;
+            }
+        }
+        return null;
+    }
+}
