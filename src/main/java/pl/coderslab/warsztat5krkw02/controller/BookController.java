@@ -42,6 +42,12 @@ public class BookController {
     @PostMapping("")
     public String postBooks(@RequestBody Book book) {
         this.mbs.addBook(book);
-        return "{status: ok}";
+        return "{\"status\": \"ok\"}";
+    }
+
+    @PutMapping("/{id}")
+    public String putBooks(@PathVariable long id, @RequestBody Book book) {
+        this.mbs.editBook(id, book);
+        return "{\"status\": \"ok\"}";
     }
 }
