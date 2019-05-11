@@ -9,6 +9,8 @@ import java.util.List;
 @Service //bardziej szczegółowa adnotacja @Component
 public class MemoryBookService {
     private List<Book> list;
+    private long NEXT_ID = 1;
+
 
     public MemoryBookService() {
         list = new ArrayList<>();
@@ -18,6 +20,7 @@ public class MemoryBookService {
                 "Sierra Kathy, Bates Bert", "Helion", "programming"));
         list.add(new Book(3L, "9780130819338", "Java 2. Podstawy",
                 "Cay Horstmann, Gary Cornell", "Helion", "programming"));
+        this.NEXT_ID = 4L;
     }
 
     public List<Book> getList() {
@@ -35,5 +38,10 @@ public class MemoryBookService {
             }
         }
         return null;
+    }
+
+    public void addBook(Book book) {
+        book.setId(this.NEXT_ID++);
+        this.list.add(book);
     }
 }

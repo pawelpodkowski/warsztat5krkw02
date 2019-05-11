@@ -2,11 +2,14 @@ package pl.coderslab.warsztat5krkw02.model;
 
 public class Book {
 
-    public Book(long id, String isbn, String title, String authprivate, String publisher, String type) {
+    public Book() { // jesli mamy juz napisany konstruktor, to kompilartor już nam sam nie zrobi bezparametrowego
+    }
+
+    public Book(long id, String isbn, String title, String author, String publisher, String type) {
         this.id = id;
         this.isbn = isbn;
         this.title = title;
-        this.authprivate = authprivate;
+        this.author = author;
         this.publisher = publisher;
         this.type = type;
     }
@@ -14,7 +17,7 @@ public class Book {
     private long id;
     private String isbn;
     private String title;
-    private String authprivate;
+    private String author;
     private String publisher;
     private String type;
 
@@ -42,12 +45,12 @@ public class Book {
         this.title = title;
     }
 
-    public String getAuthprivate() {
-        return authprivate;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAuthprivate(String authprivate) {
-        this.authprivate = authprivate;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getPublisher() {
